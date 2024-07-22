@@ -54,3 +54,15 @@ To set up this project locally, follow these steps:
    ```pyhton
    python manage.py runserver
 
+## Wagtail Integration
+This project uses Wagtail CMS for managing the blog content. The Wagtail configuration files are located in the blog/ directory.
+
+blog/models.py - Contains the Wagtail page models for the blog.
+blog/wagtail_hooks.py - Contains custom hooks and configurations for the Wagtail admin interface.
+blog/templates/ - Contains templates used by Wagtail for rendering pages.
+For detailed information on configuring and using Wagtail, refer to the Wagtail documentation https://docs.wagtail.org/en/stable/.
+
+## Contributing
+
+We welcome contributions from the community. Please follow our contributing guidelines for more details on how to contribute to this project.
+
