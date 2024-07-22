@@ -1,0 +1,4 @@
+pre[class*=language-python] {
+    background: #26315e;
+    border-radius: 10px;
+}

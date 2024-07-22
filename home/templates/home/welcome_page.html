@@ -1,0 +1,56 @@
+<!-- templates/code_example.html -->
+{% extends "base.html" %}
+
+{% block title %}Code Example{% endblock %}
+
+{% block content_header %}
+    <h1 class="m-0">Code Example</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Python Example</h3>
+        </div>
+        <div class="card-body">
+            <pre><code class="python">
+def greet(name):
+    return f"Hello, {name}!"
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">JavaScript Example</h3>
+        </div>
+        <div class="card-body">
+            <pre><code class="javascript">
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+            </code></pre>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">HTML Example</h3>
+        </div>
+        <div class="card-body">
+            <pre><code class="html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+</body>
+</html>
+            </code></pre>
+        </div>
+    </div>
+{% endblock %}
+

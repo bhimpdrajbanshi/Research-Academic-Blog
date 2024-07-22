@@ -1,0 +1,77 @@
+   <!-- Navbar -->
+   <nav class="main-header navbar navbar-expand-md navbar-light bg-info">
+    <div class="container">
+      <a href="/" class="navbar-brand">
+        <span class="brand-text font-weight-light text-white">Exploring Reseach in Compter Science</span>
+      </a>
+      <!-- Right navbar links -->
+      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+         <!-- SEARCH FORM -->
+         <form class="form-inline ml-0 ml-md-3">
+          <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-navbar" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+        <ul class="navbar-nav ml-3">
+          <li class="nav-item">
+            <i class="fa fa-user-circle mr-1" aria-hidden="true"></i>
+            <a href="{% url 'login-form'%}" class="text-white">Login</a>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </nav>
+  <!-- /.navbar -->
+
+
+  
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+    <div class="container">
+      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          {% for item in main_menus.menu_items.all %}
+          <li class="nav-item 
+              {% for subitem in main_menus.sub_menu_items.all %}
+              {% if item.title == subitem.parent_menu_page.title  %}dropdown{% endif %}
+              {% endfor %}">
+            
+          </li>
+            {% for subitem in main_menus.sub_menu_items.all %}
+            {% endfor %}
+          {% endfor %}
+          <ul class="navbar-nav">
+            {% for item in main_menus.menu_items.all %}
+              <li class="nav-item dropdown">
+                <a href="{{item.link}}"
+                {% for subitem in main_menus.sub_menu_items.all %}
+                {% if item.title == subitem.parent_menu_page.title  %}
+                 id="dropdownSubMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                {% endif %}
+                {% endfor %} class="nav-link
+                {% for subitem in main_menus.sub_menu_items.all %}
+                {% if item.title == subitem.parent_menu_page.title  %} dropdown-toggle
+                {% endif %}
+                {% endfor %}">{{item.title}}</a>
+                <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
+                  {% for subitem in main_menus.sub_menu_items.all %}
+                  <li><a href="{{subitem.link}}" class="dropdown-item">{{subitem.title}} </a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+              {% endfor %}
+            </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- /.navbar -->

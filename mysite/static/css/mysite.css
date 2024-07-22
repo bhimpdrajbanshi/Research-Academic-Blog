@@ -1,0 +1,55 @@
+/* styles.css */
+
+/* Dark theme background for code blocks */
+pre {
+    background: #26315e; /* Dark background */
+    color: #f8f8f2;      /* Light text color */
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+}
+
+/* Code block styling */
+code {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+
+/* Custom Highlight.js styles */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-tag {
+    color: #ff79c6; /* Pinkish color for keywords */
+}
+
+.hljs-string,
+.hljs-title,
+.hljs-name {
+    color: #50fa7b; /* Light green for strings */
+}
+
+.hljs-number,
+.hljs-variable,
+.hljs-template-variable {
+    color: #bd93f9; /* Light purple for numbers and variables */
+}
+
+.hljs-comment,
+.hljs-deletion {
+    color: #6272a4; /* Light blue for comments */
+}
+
+.hljs-built_in,
+.hljs-attribute,
+.hljs-symbol {
+    color: #ffb86c; /* Orange for built-in elements */
+}
+
+.hljs-function {
+    color: #8be9fd; /* Light cyan for functions */
+}
+
+.hljs-operator {
+    color: #f1fa8c; /* Yellow for operators */
+}
