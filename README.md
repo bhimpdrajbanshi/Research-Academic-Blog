@@ -32,5 +32,25 @@ To set up this project locally, follow these steps:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/Nepali-Academic-Blog.git
-   cd Nepali-Academic-Blog
+   git clone https://github.com/your-username/Research-Academic-Blog.git
+   cd Research-Academic-Blog
+
+2. **Create and Activate a Virtual Environment::**
+   ```python
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+
+3. **Install Dependencies:**
+   ```python
+   pip install -r requirements.txt
+4. **Apply Migrations:**
+   ```python
+  python manage.py migrate
+
+5. **Create a Superuser:**
+   ```python
+   python manage.py createsuperuser
+6. **Run the Development Server:**
+   ```pyhton
+   python manage.py runserver
+
