@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "menu",
     "blog",
     "publication",
+    "dashboard",
     "Research",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",

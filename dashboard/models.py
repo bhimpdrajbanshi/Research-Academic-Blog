@@ -1,12 +1,9 @@
-from django.db import models
 from wagtail.models import Page
+from menu.models import MenuItem, SubMenuItem
 from menu.models import Pages, AccessPages
 
-class BlogIndex(Page):
-    template = "blog_index_page.html"
-    pass
-class BlogDetails(Page):
-    template = "blog/blog_details_page.html"
+class Dashboard(Page):
+    template = "admin/dashboard.html"
     def get_context(self, request):
         # Get all pages
         pages = Pages.objects.all()
@@ -20,5 +17,4 @@ class BlogDetails(Page):
         # Add your custom context variables
         context['access_pages'] = access_pages
         context['pages'] = pages
-        
         return context

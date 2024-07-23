@@ -1,4 +1,4 @@
-# Nepali Academic Blog
+# Research Academic Blog
 
 Welcome to the Academic Blog repository! This project is dedicated to research and development in areas like NLP applications, AI, machine learning.
 

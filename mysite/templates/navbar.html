@@ -2,7 +2,7 @@
    <nav class="main-header navbar navbar-expand-md navbar-light bg-info">
     <div class="container">
       <a href="/" class="navbar-brand">
-        <span class="brand-text font-weight-light text-white">Exploring Reseach in Compter Science</span>
+        <span class="brand-text font-weight-light text-white">Exploring ReSearch in Compter Science</span>
       </a>
       <!-- Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
@@ -20,7 +20,11 @@
         <ul class="navbar-nav ml-3">
           <li class="nav-item">
             <i class="fa fa-user-circle mr-1" aria-hidden="true"></i>
-            <a href="{% url 'login-form'%}" class="text-white">Login</a>
+            {% if request.user.is_authenticated %}
+            <li><a href="{% url 'user-logout'%}" class="text-white"><i class="fa-solid fa-right-to-bracket"></i>Logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login-form'%}" class="text-white">Log In</a></li>
+            {% endif %}
           </li>
         </ul>
       </ul>

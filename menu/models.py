@@ -10,6 +10,7 @@ from wagtail.admin.panels import (
 )
 from wagtail.models import Orderable
 from wagtail.snippets.models import register_snippet
+from django.contrib.auth.models import User, Group
 
 
 class MenuItem(Orderable):
@@ -181,3 +182,59 @@ class Menu(ClusterableModel):
 
     def __str__(self):
         return self.title
+    
+  
+class Pages(Orderable):
+    link_page = models.ForeignKey(
+        "wagtailcore.Page",
+        null=True,
+        blank=True,
+        related_name="+",
+        on_delete=models.CASCADE,
+    )
+    page = ParentalKey("AccessPages", related_name="pages")
+
+    panels = [
+        PageChooserPanel("link_page"),
+    ]
+
+    @property
+    def link(self):
+        if self.link_page:
+            return self.link_page.url
+        return '#'
+
+
+class AccessPages(ClusterableModel, Orderable):
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    page = ParentalKey("Privileges", related_name="page_access")
+
+    panels = [
+        FieldPanel("group"),
+        InlinePanel("pages", label="Privileges Pages"),
+    ]
+
+
+@register_snippet
+class Privileges(ClusterableModel):
+    title = models.CharField(max_length=100)
+    slug = models.CharField(editable=True)
+
+    panels = [
+        MultiFieldPanel([
+            FieldPanel("title"),
+            FieldPanel("slug"),
+        ], heading="Privileges"),
+        InlinePanel("page_access", label="User Privileges"),
+    ]
+
+    def __str__(self):
+        return self.title
+    
+    def get_accessible_pages(self, group):
+        accessible_pages = []
+        print(accessible_pages,'accessible_pages')
+        for access_page in self.page_access.filter(group=group):
+            for page in access_page.pages.all():
+                accessible_pages.append(page.link_page.url)
+        return accessible_pages
