@@ -11,7 +11,10 @@ from wagtail.admin.panels import (
 from wagtail.models import Orderable
 from wagtail.snippets.models import register_snippet
 from django.contrib.auth.models import User, Group
-
+from wagtail.models import Page
+from django.core.exceptions import PermissionDenied
+from django.shortcuts import redirect
+from django.urls import reverse
 
 class MenuItem(Orderable):
 
@@ -238,3 +241,21 @@ class Privileges(ClusterableModel):
             for page in access_page.pages.all():
                 accessible_pages.append(page.link_page.url)
         return accessible_pages
+    
+
+
+class RestrictedPage(Page):
+    """
+    A page model with restricted access based on user groups.
+    """
+    def serve(self, request, *args, **kwargs):
+        allowed_groups = ['AccessGroup']
+        
+        if request.user.is_authenticated:
+            user_groups = request.user.groups.values_list('name', flat=True)
+            if not any(group in allowed_groups for group in user_groups):
+                raise PermissionDenied("You do not have access to this page.")
+        else:
+            return redirect(reverse('login'))  # Redirect to login if user is not authenticated
+        
+        return super().serve(request, *args, **kwargs)

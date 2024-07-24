@@ -1,0 +1,35 @@
+{% extends "admin/dashboard.html" %}
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block admincontent %}
+
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Python Example</h3>
+    </div>
+    <div class="card-body">
+        <pre><code class="python">
+def greet(name):
+return f"Hello, {name}!"
+        </code></pre>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">JavaScript Example</h3>
+    </div>
+    <div class="card-body">
+        <pre><code class="javascript">
+function greet(name) {
+return `Hello, ${name}!`;
+}
+        </code></pre>
+    </div>
+</div>
+
+
+{% endblock admincontent %}

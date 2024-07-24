@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "publication",
     "dashboard",
     "Research",
+    "doc_project",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
+    'home.middleware.GroupAccessMiddleware',
 ]
 
 ROOT_URLCONF = "mysite.urls"

@@ -24,3 +24,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Initial release of the Research Academic Blog.
 - Add Dashboard App
 - Add Dashboard page in Dashboard App
+
+
+## [1.0.1] - 2024-07-22
+
+### Changed
+- Update html acesss  only authenticate user 
+
+## Added
+- Add doc-project app to manage project documention
