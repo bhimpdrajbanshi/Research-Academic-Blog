@@ -53,3 +53,10 @@ code {
 .hljs-operator {
     color: #f1fa8c; /* Yellow for operators */
 }
+
+
+.card.my-card {
+    background: #f4f6f9;
+    /* border: 0px solid #f4f6f9; */
+    box-shadow: 0 0 0px rgb(244 246 249), 0 -1px 2px rgba(0, 0, 0, .2);
+}
