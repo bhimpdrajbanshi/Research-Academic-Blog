@@ -1,8 +1,8 @@
    <!-- Navbar -->
-   <nav class="main-header navbar navbar-expand-md navbar-light bg-info">
+   <nav class="main-header navbar navbar-expand-md navbar-light bg-head">
     <div class="container">
       <a href="/" class="navbar-brand">
-        <span class="brand-text font-weight-light text-white">Exploring ReSearch in Compter Science</span>
+        <span class="brand-text font-weight-bold text-white">Exploring ReSearch in Compter Science</span>
       </a>
       <!-- Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
@@ -19,7 +19,7 @@
         </form>
         <ul class="navbar-nav ml-3">
           <li class="nav-item">
-            <i class="fa fa-user-circle mr-1" aria-hidden="true"></i>
+            <i class="fa fa-user-circle text-white mr-1" aria-hidden="true"></i>
             {% if request.user.is_authenticated %}
             <li><a href="{% url 'user-logout'%}" class="text-white"><i class="fa-solid fa-right-to-bracket"></i>Logout</a></li>
             {% else %}
@@ -41,9 +41,9 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+      <div class="collapse navbar-collapse order-3 bg-head-text" id="navbarCollapse">
         <!-- Left navbar links -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" >
           {% for item in main_menus.menu_items.all %}
           <li class="nav-item 
               {% for subitem in main_menus.sub_menu_items.all %}
@@ -62,11 +62,11 @@
                 {% if item.title == subitem.parent_menu_page.title  %}
                  id="dropdownSubMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                 {% endif %}
-                {% endfor %} class="nav-link
+                {% endfor %} class="nav-link bg-text-bold
                 {% for subitem in main_menus.sub_menu_items.all %}
                 {% if item.title == subitem.parent_menu_page.title  %} dropdown-toggle
                 {% endif %}
-                {% endfor %}">{{item.title}}</a>
+                {% endfor %}" class="bg-text-bold">{{item.title}}</a>
                 <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" style="left: 0px; right: inherit;">
                   {% for subitem in main_menus.sub_menu_items.all %}
                   <li><a href="{{subitem.link}}" class="dropdown-item">{{subitem.title}} </a></li>

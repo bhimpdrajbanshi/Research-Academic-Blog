@@ -3,7 +3,7 @@ from wagtail.models import Page
 from menu.models import Pages, AccessPages
 
 class BlogIndex(Page):
-    template = "blog_index_page.html"
+    template = "blog/blog_index_page.html"
     pass
 class BlogDetails(Page):
     template = "blog/blog_details_page.html"
